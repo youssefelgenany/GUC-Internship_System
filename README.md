@@ -1,2 +1,2 @@
 # GUC-Internship_System
- React-based front-end prototype for the GUC Internship System, demonstrating intuitive UI flows and responsiveness, with dummy data in place of a backend.
+This repository contains the complete Milestone 2 front-end prototype for the GUC Internship Management System. Built with React and plain JavaScript, it covers all specified UI screens—student and company profiles, internship listings and applications, evaluation dashboards, and report views—using dummy data to simulate real interactions. The design adheres to UX best practices taught in lectures, featuring a cohesive color palette, responsive layouts, clear navigation, and user feedback mechanisms.
