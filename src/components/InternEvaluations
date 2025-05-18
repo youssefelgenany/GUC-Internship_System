@@ -1,0 +1,142 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import CompanyNavbar from './CompanyNavbar';
+
+const InternEvaluations = () => {
+  const [evaluations, setEvaluations] = useState([]);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    console.log('InternEvaluations: Initializing with dummy data');
+    try {
+      const dummyData = [
+        {
+          studentId: 'STU011',
+          internName: 'Mina Gerges',
+          internshipRole: 'Software Engineering Intern',
+          internshipId: '1',
+          technical: { rating: 4, comment: 'Strong coding skills' },
+          communication: { rating: 5, comment: 'Excellent communicator' },
+          problemSolving: { rating: 5, comment: 'Creative solutions' },
+          teamwork: { rating: 4, comment: 'Collaborative' },
+          initiative: { rating: 4, comment: 'Proactive' },
+          overall: { rating: 5, comment: 'Outstanding intern' },
+          recommendation: 'Yes',
+          overallRating: 4.5,
+          dateOfEvaluation: '2025-05-15',
+          companyId: 'GUC_TECH_001',
+        },
+        {
+          studentId: 'STU012',
+          internName: 'Nourhan Tarek',
+          internshipRole: 'Data Science Intern',
+          internshipId: '2',
+          technical: { rating: 4, comment: 'Good data analysis skills' },
+          communication: { rating: 4, comment: 'Clear presentations' },
+          problemSolving: { rating: 5, comment: 'Analytical thinker' },
+          teamwork: { rating: 4, comment: 'Team player' },
+          initiative: { rating: 3, comment: 'Needs more proactivity' },
+          overall: { rating: 4, comment: 'Solid performer' },
+          recommendation: 'Yes',
+          overallRating: 4.0,
+          dateOfEvaluation: '2025-05-15',
+          companyId: 'GUC_TECH_001',
+        },
+        {
+          studentId: 'STU014',
+          internName: 'Dina Magdy',
+          internshipRole: 'Cybersecurity Intern',
+          internshipId: '4',
+          technical: { rating: 5, comment: 'Expert in security protocols' },
+          communication: { rating: 4, comment: 'Good reporting skills' },
+          problemSolving: { rating: 5, comment: 'Quick to identify issues' },
+          teamwork: { rating: 5, comment: 'Highly collaborative' },
+          initiative: { rating: 5, comment: 'Takes leadership' },
+          overall: { rating: 5, comment: 'Exceptional intern' },
+          recommendation: 'Yes',
+          overallRating: 4.8,
+          dateOfEvaluation: '2025-05-15',
+          companyId: 'GUC_TECH_001',
+        },
+      ];
+      setEvaluations(dummyData);
+      console.log('Initialized with dummy data:', dummyData);
+    } catch (err) {
+      console.error('Error initializing evaluations:', err);
+      setError('Failed to load evaluations.');
+    }
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <CompanyNavbar />
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h1 className="text-2xl font-bold text-[#234B73]">All Evaluations</h1>
+              <Link
+                to="/all-completed-interns"
+                className="px-4 py-2 bg-[#234B73] text-white rounded-md hover:bg-[#1a3a5a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#234B73]"
+              >
+                Go to Internship Completers
+              </Link>
+            </div>
+            {error && (
+              <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                {error}
+              </div>
+            )}
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="p-4 text-left text-sm font-semibold text-[#234B73]">Intern Name</th>
+                    <th className="p-4 text-left text-sm font-semibold text-[#234B73]">Role</th>
+                    <th className="p-4 text-left text-sm font-semibold text-[#234B73]">Overall Rating</th>
+                    <th className="p-4 text-left text-sm font-semibold text-[#234B73]">Recommendation</th>
+                    <th className="p-4 text-left text-sm font-semibold text-[#234B73]">Date</th>
+                    <th className="p-4 text-left text-sm font-semibold text-[#234B73]">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {evaluations.length === 0 ? (
+                    <tr>
+                      <td colSpan={6} className="p-8 text-center text-gray-600">
+                        No evaluations found.
+                      </td>
+                    </tr>
+                  ) : (
+                    evaluations.map((evaluation) => (
+                      <tr
+                        key={`${evaluation.companyId}_${evaluation.internshipId}_${evaluation.studentId}`}
+                        className="border-b hover:bg-gray-50"
+                      >
+                        <td className="p-4 text-[#234B73] font-medium">{evaluation.internName}</td>
+                        <td className="p-4 text-gray-600">{evaluation.internshipRole}</td>
+                        <td className="p-4 text-gray-600">{evaluation.overallRating.toFixed(1)}</td>
+                        <td className="p-4 text-gray-600">{evaluation.recommendation}</td>
+                        <td className="p-4 text-gray-600">{evaluation.dateOfEvaluation}</td>
+                        <td className="p-4">
+                          <Link
+                            to={`/company-evaluation/${evaluation.internshipId}/${evaluation.studentId}`}
+                            className="text-[#F08F36] hover:underline"
+                            onClick={() => console.log(`Navigating to evaluation: ${evaluation.internshipId}/${evaluation.studentId}`)}
+                          >
+                            View Evaluation
+                          </Link>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InternEvaluations;

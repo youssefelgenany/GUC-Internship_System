@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb;
+  color: #234B73;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+  @apply bg-[#234B73] text-white px-4 py-2 rounded-md hover:bg-[#1a3a5a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#234B73];
+}
+
+.btn-secondary {
+  @apply bg-[#F08F36] text-white px-4 py-2 rounded-md hover:bg-[#d97b22] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F08F36];
+}
+
+.btn-outline {
+  @apply border border-[#234B73] text-[#234B73] px-4 py-2 rounded-md hover:bg-[#234B73] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#234B73];
+}
+
+/* Form Input Styles */
+.form-input {
+  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#234B73] focus:border-[#234B73] sm:text-sm;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white shadow-md rounded-lg p-6;
+}
+
+/* Table Styles */
+.table-header {
+  @apply px-4 py-2 text-left text-sm font-medium text-[#234B73];
+}
+
+.table-data {
+  @apply px-4 py-3 text-sm;
+}
+
+/* Badge Styles */
+.badge-success {
+  @apply inline-block rounded-full px-2 py-1 text-xs font-medium bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply inline-block rounded-full px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800;
+}
+
+.badge-danger {
+  @apply inline-block rounded-full px-2 py-1 text-xs font-medium bg-red-100 text-red-800;
+}
+
+.badge-info {
+  @apply inline-block rounded-full px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800;
+}
