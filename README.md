@@ -32,12 +32,22 @@ This project follows consistent naming conventions and coding standards:
 - **Context**: Custom hooks prefixed with `use` (e.g., `useAuth`)
 
 ## Screenshots
-
+### 1. Login Page
 ![Login Page](screenshots/login.png)
+
+### 2. Student Dashboard
 ![Student Dashboard](screenshots/student-dashboard.png)
+
+### 3. Browse Internships Page
 ![Browse Internships](screenshots/browse-internships.png)
+
+### 4. Company Dashboard
 ![Company Dashboard](screenshots/company-dashboard.png)
+
+### 5. SCAD Dashboard
 ![SCAD Dashboard](screenshots/scad-dashboard.png)
+
+### 6. SCAD Dashboard (continue)
 ![SCAD Dashboard (continue)](screenshots/scad-dashboard1.png)
 
 ## Tech/Framework Used
