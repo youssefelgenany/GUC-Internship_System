@@ -73,7 +73,7 @@ This project is built using the **React** frontend framework with the following 
 - **Build Tool**: Create React App (react-scripts 5.0.1)
 - **Development Tools**: ESLint, PostCSS, Autoprefixer
 
-**Note**: This is a frontend-only application. The backend (Node.js/Express) and database (MongoDB) components are planned for future implementation.
+**Note**: This is a frontend-only application.
 
 ## Features
 
@@ -315,89 +315,6 @@ To run this project locally, follow these steps:
 - Safari
 - Edge
 
-## API References
-
-Since this is a frontend-only application using dummy data, the following routes represent the intended API endpoints that would be implemented with a backend:
-
-### Authentication Routes
-1. **POST /api/auth/login**
-   - Description: Authenticate user and return JWT token
-   - Request Body: `{ email: string, password: string }`
-   - Response: `{ token: string, user: UserObject, userType: string }`
-
-2. **POST /api/auth/logout**
-   - Description: Logout user and invalidate session
-   - Headers: `Authorization: Bearer <token>`
-   - Response: `{ message: "Logged out successfully" }`
-
-### Student Routes
-3. **GET /api/students/:id/profile**
-   - Description: Get student profile information
-   - Headers: `Authorization: Bearer <token>`
-   - Response: `{ student: StudentProfileObject }`
-
-4. **GET /api/internships**
-   - Description: Get all available internships with filtering options
-   - Query Parameters: `?industry=Technology&location=Cairo&paid=true`
-   - Response: `{ internships: Internship[] }`
-
-5. **POST /api/applications**
-   - Description: Submit internship application
-   - Request Body: `{ internshipId: number, resume: File, coverLetter: string }`
-   - Response: `{ applicationId: number, status: "pending" }`
-
-### Company Routes
-6. **POST /api/companies/register**
-   - Description: Register new company
-   - Request Body: `{ companyName: string, email: string, documents: File[] }`
-   - Response: `{ companyId: number, status: "pending" }`
-
-7. **POST /api/companies/internships**
-   - Description: Create new internship posting
-   - Request Body: `{ title: string, description: string, requirements: string[] }`
-   - Response: `{ internshipId: number }`
-
-8. **GET /api/companies/:id/applications**
-   - Description: Get all applications for company's internships
-   - Response: `{ applications: Application[] }`
-
-9. **PUT /api/applications/:id/status**
-   - Description: Update application status (accept/reject)
-   - Request Body: `{ status: "accepted" | "rejected" }`
-   - Response: `{ message: "Status updated" }`
-
-### SCAD Routes
-10. **GET /api/scad/dashboard/stats**
-    - Description: Get dashboard statistics
-    - Response: `{ students: number, companies: number, internships: number, reports: number }`
-
-11. **GET /api/scad/students**
-    - Description: Get all students with filtering
-    - Response: `{ students: Student[] }`
-
-12. **PUT /api/companies/:id/approve**
-    - Description: Approve company registration
-    - Response: `{ message: "Company approved" }`
-
-### Faculty Routes
-13. **GET /api/faculty/reports**
-    - Description: Get assigned student reports
-    - Response: `{ reports: Report[] }`
-
-14. **PUT /api/reports/:id/grade**
-    - Description: Grade and provide feedback on report
-    - Request Body: `{ grade: string, feedback: string }`
-    - Response: `{ message: "Report graded" }`
-
-### Assessment Routes
-15. **GET /api/assessments**
-    - Description: Get available online assessments
-    - Response: `{ assessments: Assessment[] }`
-
-16. **POST /api/assessments/:id/submit**
-    - Description: Submit assessment answers and get score
-    - Request Body: `{ answers: number[] }`
-    - Response: `{ score: number, total: number }`
 
 ## Tests
 
@@ -469,7 +386,7 @@ We welcome contributions to improve the GUC Internship Management System! Here a
 
 ## Credits
 
-This project was developed as part of the GUC Softwar engineering course requirements. The following resources were used for learning and implementation:
+This project was developed as part of the GUC Software Engineering course requirements. The following resources were used for learning and implementation:
 
 ### Documentation and Tutorials
 - **React Official Documentation**: https://react.dev/
@@ -517,9 +434,6 @@ The following third-party libraries are used in this project and have their own 
 - **Tailwind CSS**: MIT License
 
 All dependencies and their licenses can be viewed in the `package.json` file and `node_modules` directory.
-
-### License Notice
-If this project uses any services or libraries that require specific license attribution (such as Apache 2.0 for Stripe if payment processing is added), those licenses must be included in this section.
 
 ---
 
